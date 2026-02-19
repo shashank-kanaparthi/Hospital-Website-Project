@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | OrthoCare Hospital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #1877ba;
+      --secondary: #18ba8d;
+      --bg: #f7fafd;
+      --text: #222;
+      --white: #fff;
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Poppins', Arial, sans-serif; background: var(--bg); color: var(--text);}
+    a {color: inherit; text-decoration: none; transition: 0.2s;}
+    ul {list-style: none;}
+    img {max-width: 100%;}
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.6rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align everything to the left */
+    gap: 5rem; /* Space between logo and nav */
+    }
+
+    .logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-right: 1rem; /* Space after logo */
+    }
+
+    nav ul {
+    display: flex;
+    gap: 1.8rem; /* Space between each nav link */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+
+    nav ul li a {
+    font-weight: 500;
+    padding: 0.3em 1em;
+    border-radius: 20px;
+    transition: 0.2s;
+    color: #222; /* Default link color */
+    display: inline-block;
+    }
+
+    nav ul li a:hover {
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+    }
+
+nav ul li a.active {
+ background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+  }
+
+
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: var(--primary);
+      padding: 0.7rem 2rem;
+      font-size: 1.05rem;
+      color: #ecf7ff;
+    }
+    .contact-bar span {
+      display: flex;
+      align-items: center;
+      gap: 0.54rem;
+      margin: 0.3rem 0;
+      font-size: 1rem;
+    }
+    .contact-bar i {
+      color: #eaf9f3;
+      font-size: 1.13em;
+    }
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-direction: column; width: 100%; margin-top: 1rem; gap: 0.5rem;}
+      nav ul li { width: 100%; }
+      nav a { width: 100%; padding: 10px 0; }
+      .contact-bar { flex-direction: column; gap: 0.55rem; }
+    }
+
+    /* --- Modern Contact Page --- */
+    .contact-hero {
+      max-width: 950px;
+      margin: 0 auto 38px auto;
+      padding: 2.5rem 2vw 0 2vw;
+      text-align: center;
+    }
+    .contact-hero h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      letter-spacing: .4px;
+    }
+    .contact-hero p {
+      color: #397b92;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width:555px;
+      margin: 0 auto 18px auto;
+      opacity:.91;
+    }
+    .contact-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 48px;
+      max-width: 980px;
+      margin: 0 auto;
+      align-items: flex-start;
+      padding-bottom: 10px;
+    }
+    /* Info Card */
+    .contact-info-card {
+      background: var(--white);
+      border-radius: 17px;
+      box-shadow: var(--shadow);
+      padding: 38px 32px 27px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 390px;
+      justify-content: flex-start;
+    }
+    .contact-info-list {
+      width: 100%;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #145074;
+      font-weight: 500;
+      background: #f5fcfd;
+      border-radius: 8px;
+      padding: 12px 17px;
+      transition: box-shadow 0.17s;
+      box-shadow: 0 0.5px 5px rgba(24,119,186, .06);
+    }
+    .contact-info-item:hover {
+      background: #e4fcf7;
+      box-shadow: 0 2px 13px rgba(24,119,186, .11);
+    }
+    .contact-info-item i {
+      color: var(--secondary);
+      font-size: 1.45rem;
+      min-width: 30px;
+      text-align: center;
+      margin-right: 2px;
+    }
+    /* Google map preview style */
+    .contact-map {
+      width: 100%;
+      border: 0;
+      margin-top: 16px;
+      border-radius: 11px;
+      box-shadow: 0 1px 10px rgba(24,119,186,.09);
+      min-height: 170px;
+      height: 210px;
+      margin-bottom: 6px;
+    }
+    /* Contact Form Card */
+    .contact-form-card {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 38px 39px 29px 39px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 390px;
+      position:relative;
+    }
+    .contact-form-card h3 {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.32rem;
+      margin-bottom: 27px;
+      letter-spacing: .015em;
+    }
+    .form-group label {
+      font-weight: 600;
+      color: #1877ba;
+      margin-bottom: 7px;
+      font-size: 1rem;
+    }
+    .form-control {
+      border-radius: 28px;
+      border: 1.2px solid #b8e3f9;
+      padding: 13px 20px;
+      font-size: 1.04rem;
+      margin-bottom: 17px;
+      background: #fafdff;
+      transition: border .2s, box-shadow .2s;
+    }
+    .form-control:focus {
+      border-color: #18ba8d;
+      box-shadow: 0 1.5px 0 #18ba8d19;
+      outline: none;
+    }
+    .contact-btn {
+      background: linear-gradient(90deg, var(--secondary), var(--primary) 85%);
+      color: #fff;
+      border: none;
+      padding: 15px 0;
+      border-radius: 32px;
+      font-size: 1.14rem;
+      font-weight: 600;
+      width: 100%;
+      transition: background .18s, box-shadow .13s;
+      box-shadow: 0 2px 9px rgba(24,119,186,0.07);
+      letter-spacing: 0.01em;
+    }
+    .contact-btn:hover, .contact-btn:focus {
+      background: linear-gradient(90deg, var(--primary), var(--secondary) 90%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(24,186,141,0.11);
+    }
+    .contact-confirm {
+      display: none;
+      text-align: center;
+      color: #18ba8d;
+      font-size: 1.09rem;
+      font-weight: 600;
+      margin-top: 20px;
+      letter-spacing:.012em;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+      .contact-main-grid { grid-template-columns: 1fr; gap: 36px 0; max-width: 97%; }
+      .contact-info-card, .contact-form-card {
+        padding: 30px 7vw 18px 7vw;
+        min-height: 320px;
+      }
+      .contact-hero h1 { font-size: 2.0rem; }
+      .contact-map { height: 160px; }
+    }
+    @media (max-width: 600px) {
+      .contact-info-card, .contact-form-card { padding: 18px 2vw 12px 2vw; }
+      .contact-map { height: 110px; }
+    }
+            /* Footer Styling */
+.footer-section {
+  background: #0d1b45;
+  color: #fff;
+  padding: 50px 0 24px 0;
+  margin-top: 4rem;
+}
+.footer-main {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.3rem;
+}
+.footer-block {
+  flex: 1 1 225px;
+  min-width: 180px;
+  margin-bottom: 12px;
+}
+.footer-logo img {
+  width: 220px;
+  max-width: 98%;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px 14px 6px 0;
+}
+.footer-desc {
+  color: #f0f0f0;
+  line-height: 1.66;
+  font-size: 1.04rem;
+  margin-top: 8px;
+  opacity: 0.92;
+}
+.footer-title {
+  border-bottom: 2.5px solid #18ba8d;
+  padding-bottom: 3px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 1.14rem;
+  letter-spacing: 0.38px;
+  color: #faffff;
+  display: inline-block;
+}
+.footer-links a {
+  display: block;
+  color: #f0f0f0;
+  margin-bottom: 8px;
+  font-size: 1.01rem;
+  transition: color .18s;
+  opacity: .96;
+}
+.footer-links a:hover { color: #18ba8d; }
+.footer-contact > div {
+  margin-bottom: 9px;
+  color: #e0eafe;
+  font-size: 1.02rem;
+}
+.footer-contact i {
+  margin-right: 7px;
+  color: #18ba8d;
+  width: 18px;
+  text-align: center;
+}
+.footer-bottom {
+  background: #111b30;
+  text-align: center;
+  padding: 14px 5px 10px 5px;
+  color: #bbc8e4;
+  font-size: 0.99rem;
+  letter-spacing: 0.04em;
+}
+.footer-bottom a {
+  color: #18ba8d;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-bottom a:hover { text-decoration: underline; }
+@media (max-width: 900px) {
+  .footer-main { flex-direction: column; gap: 1.7rem; }
+  .footer-block { min-width: 0; }
+}
+
+/* Floating WhatsApp & Scroll Top Buttons */
+.whatsapp-float, .scroll-top {
+  position: fixed;
+  bottom: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  box-shadow: 0 4px 18px rgba(24, 119, 186, 0.16);
+  transition: background 0.22s;
+  border: none;
+  cursor: pointer;
+}
+.whatsapp-float {
+  left: 20px;
+  background: #25d366;
+  color: #fff;
+  width: 56px; height: 56px;
+  font-size: 27px;
+}
+.whatsapp-float:hover { background: #1ebc5e; }
+.scroll-top {
+  right: 20px;
+  background: #18ba8d;
+  color: #fff;
+  width: 50px; height: 50px;
+  font-size: 20px;
+}
+.scroll-top:hover { background: #128066; }
+
+/* Responsive doctor cards */
+@media (max-width: 991px) {
+  .doctor-card { padding: 28px 14px; }
+}
+@media (max-width: 767px) {
+  .doctor-section { padding: 54px 0 38px 0; }
+  .doctor-card { margin-bottom: 28px; }
+  .section-title { font-size: 1.6rem; }
+}
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-container">
+    <div class="logo">Ortho<span style="color:var(--secondary)">Care</span> Hospital</div>
+    <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <!-- ===== DROPDOWN SERVICES START ==== -->
+          <li class="nav-dropdown">
+            <a href="service.html">Services <i class="fas fa-chevron-down" style="font-size:0.8em"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="service.html">All Services</a></li>
+              <li><a href="joint_replacement.html">Joint Replacement</a></li>
+              <li><a href="Sports Injur.html">Sports Injury/Arthroscopy</a></li>
+              <li><a href="Fracture & Trauma.html">Fracture & Trauma</a></li>
+              <li><a href="Physical Therapy & Rehabilitation.html">Rehabilitation</a></li>
+              <li><a href="Minimally Invasive Surgery.html">Minimally Invasive Surgery</a></li>
+            </ul>
+          </li>
+          <!-- ===== DROPDOWN SERVICES END ===== -->
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  </div>
+  <div class="contact-bar">
+    <span><i class="fas fa-phone"></i> +91 99999 99999</span>
+    <span><i class="fas fa-map-marker-alt"></i>Opp High School Bus Stop Bandar Road, Patamata, Vijayawada, Andhra Pradesh</span>
+    <span><i class="fas fa-clock"></i> Mon-Sat: 9:00-5:00 </span>
+  </div>
+</header>
+
+
+<!-- Contact Hero Section -->
+<section class="contact-hero">
+  <h1><i class="fa-regular fa-paper-plane" style="color:var(--secondary);"></i> Get in Touch with OrthoCare</h1>
+  <p>
+    Have a question or want to book an appointment? <b>Reach our care team directly below or send us a message&mdash;we reply swiftly at all hours.</b>
+  </p>
+</section>
+
+<section>
+  <div class="contact-main-grid">
+    <!-- Info Card -->
+    <div class="contact-info-card">
+      <h3 style="color:#19bb8c;font-size:1.12rem;font-weight:600;margin-bottom:18px;margin-top:0;">
+        <i class="fas fa-info-circle"></i> Hospital Contact Info
+      </h3>
+      <div class="contact-info-list">
+        <div class="contact-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          Opp High School Bus Stop,<br>Patamata, Vijayawada
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+919999999999" style="color:inherit;text-decoration:none;">+91 99999 99999</a>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@orthocare.com" style="color:inherit;text-decoration:none;">info@orthocare.com</a>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-clock"></i>
+          Mon-Sat: 9:00–5:00
+        </div>
+      </div>
+      <!-- Google Map -->
+      <iframe
+        class="contact-map"
+        src="https://www.google.com/maps?q=Opp+High+School+Bus+Stop+Patamata+Vijayawada&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!-- Form Card -->
+    <div class="contact-form-card">
+      <h3><i class="fa-regular fa-comments"></i> Message Us Directly</h3>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="cname">Your Name</label>
+          <input type="text" class="form-control" id="cname" name="cname" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="cemail">Email</label>
+          <input type="email" class="form-control" id="cemail" name="cemail" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="cphone">Phone Number</label>
+          <input type="tel" class="form-control" id="cphone" name="cphone" required pattern="[0-9 ]{10,}">
+        </div>
+        <div class="form-group">
+          <label for="cmsg">Message</label>
+          <textarea class="form-control" id="cmsg" name="cmsg" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="contact-btn">Send Message</button>
+        <div class="contact-confirm" id="contactConfirm">
+          <i class="fa-solid fa-circle-check"></i> Thank you! We'll get in touch soon.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<section class="footer-section">
+  <div class="footer-main">
+    <div class="footer-block">
+      <div class="footer-logo">
+        <img src="#" alt="OrthoCare Logo">
+      </div>
+      <p class="footer-desc">
+        Our goal is to deliver quality care in a courteous, respectful, and compassionate manner.<br>
+        We strive to be your family's first and best choice in healthcare.
+      </p>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Services</div>
+      <div class="footer-links">
+        <a href="#services">Joint Replacement</a>
+        <a href="#services">Sports Injury</a>
+        <a href="#services">Fracture & Trauma</a>
+        <a href="#services">Rehabilitation</a>
+      </div>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#blogs">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Quick Contact</div>
+      <div class="footer-contact">
+        <div><i class="fas fa-phone-alt"></i> +91 99999 99999</div>
+        <div><i class="fas fa-map-marker-alt"></i> Opp High School Bus Stop, Patamata, Vijayawada</div>
+        <div><i class="fas fa-envelope"></i> info@orthocare.com</div>
+        <div style="margin-top:10px;">
+          <a href="#"><i class="fab fa-facebook-f" style="color:#1877f2;"></i></a>
+          <a href="#"><i class="fab fa-instagram" style="color:#e7477c;"></i></a>
+          <a href="#"><i class="fas fa-envelope" style="color:#18ba8d;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer-bottom">
+  © 2025 OrthoCare Hospital | Orthopedic & Joint Replacement Specialists<br>
+  Made with <span style="color: #e25555;">❤</span> by <a href="#">Shashank.K</a>
+</div>
+
+<!-- Floating WhatsApp + Scroll Top -->
+<a href="#" class="whatsapp-float" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" title="Go to top"><i class="fas fa-arrow-up"></i></div>
+
+
+<script>
+  // Simple confirmation effect
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('contactConfirm').style.display = 'block';
+    setTimeout(function(){
+      document.getElementById('contactConfirm').style.display = 'none';
+    }, 5000);
+    this.reset();
+  });
+</script>
+</body>
+</html>

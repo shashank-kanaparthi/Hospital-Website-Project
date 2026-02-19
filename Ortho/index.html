@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OrthoCare Hospital | Orthopedic & Joint Replacement Center</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  
+  <style>
+        :root {
+      --primary: #1877ba;
+      --secondary: #18ba8d;
+      --bg: #f7fafd;
+      --text: #222;
+      --white: #fff;
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Poppins', Arial, sans-serif; background: var(--bg); color: var(--text);}
+    a {color: inherit; text-decoration: none; transition: 0.2s;}
+    ul {list-style: none;}
+    img {max-width: 100%;}
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 1.1rem 2rem;
+    }
+    .logo {font-size: 1.9rem; font-weight: 700; color: var(--primary);}
+    nav ul {display: flex; gap: 2rem;}
+    nav ul li a {
+      font-weight: 500;
+      padding: .3em 1em;
+      border-radius: 20px;
+      transition: 0.2s;
+    }
+    nav ul li a:hover {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+      text-decoration: none;
+    }
+    nav ul li a.active {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+      text-decoration: none;
+    }
+        .contact-bar {
+      position: relative;
+      background: var(--glass-bg);
+      color: var(--text);
+      padding: 1rem 0;
+      overflow: hidden;
+      border-bottom: 1.5px solid var(--glass-border);
+      box-shadow: inset 0 -4px 8px rgba(24, 119, 186, 0.1);
+      backdrop-filter: saturate(180%) blur(8px);
+    }
+
+    .marquee-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .marquee-inner {
+      display: flex;
+      animation: scrollMarquee 20s linear infinite;
+      gap: 3.5rem;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .marquee-inner:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      user-select: none;
+    }
+
+    /* Marquee items with mixed blue-green gradient background and white text */
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 600;
+      color: var(--white);
+      padding: 0.65rem 1.3rem;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border: none;
+      box-shadow:
+        0 4px 12px var(--shadow-glow-primary),
+        0 0 15px var(--shadow-glow-secondary);
+      transition: all 0.3s ease;
+      font-size: 1.05rem;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .marquee-item i {
+      color: var(--white);
+      font-size: 1.3rem;
+      min-width: 22px;
+      transition: color 0.3s ease;
+    }
+
+/*     
+    .fade {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 5rem;
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 0.4s ease;
+      background: var(--bg);
+    }
+
+    .fade.left {
+      left: 0;
+      background: linear-gradient(to right, var(--bg) 95%, transparent);
+    }
+
+    .fade.right {
+      right: 0;
+      background: linear-gradient(to left, var(--bg) 95%, transparent);
+    } */
+
+    /* Animation Keyframes */
+    @keyframes scrollMarquee {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Responsive adjustments */
+
+    @media (max-width: 768px) {
+      .marquee-content {
+        gap: 2.2rem;
+      }
+      .marquee-item {
+        font-size: 0.95rem;
+        padding: 0.55rem 1rem;
+        border-radius: 9px;
+      }
+      .marquee-item i {
+        font-size: 1.1rem;
+        min-width: 20px;
+      }
+      .fade {
+        width: 3.5rem;
+      }
+      .contact-bar {
+        padding: 0.75rem 0;
+        border-bottom-width: 1px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .marquee-item {
+        font-size: 0.85rem;
+        padding: 0.45rem 0.9rem;
+        border-radius: 8px;
+      }
+      .marquee-content {
+        gap: 1.4rem;
+      }
+      .fade {
+        width: 3rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-direction: column; width: 100%; margin-top: 1rem; }
+      nav ul li { width: 100%; }
+      nav a { width: 100%; padding: 10px 0; }
+      .contact-bar { flex-direction: column; gap: 0.55rem; }
+    }
+    .contact-bar span:not(:last-child)::after {content: " | "; margin: 0 0.5em;}
+    /* ========================== */
+/* ======= NAVBAR DROPDOWN ======= */
+/* ========================== */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 120%;
+      left: 0;
+      background: #fff;
+      min-width: 210px;
+      box-shadow: 0 10px 24px rgba(24,119,186,0.11);
+      border-radius: 10px;
+      z-index: 999;
+      padding: 7px 0;
+    }
+    .nav-dropdown:hover > .dropdown-menu,
+    .nav-dropdown:focus-within > .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li a {
+      color: #1877ba;
+      padding: 8px 24px;
+      display: block;
+      font-size: 1rem;
+      border-radius: 0;
+      background: none;
+      transition: background 0.18s, color 0.18s;
+    }
+    .dropdown-menu li a:hover {
+      background: linear-gradient(120deg,#1877ba,#18ba8d);
+      color: #fff;
+      font-weight: 500;
+    }
+    @media (max-width: 768px) {
+      .nav-dropdown { position: static; }
+      .nav-dropdown .dropdown-menu {
+        position: static;
+        min-width: unset;
+        box-shadow: none;
+        background: inherit;
+        padding: 0;
+      }
+      .dropdown-menu li a {
+        padding: 10px 0 10px 18px;
+        color: var(--primary);
+        background: transparent;
+      }
+    }
+    /* ========================== */
+    /* =======  REST CSS   ======= */
+    /* ========================== */
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 3rem 2rem 2rem 2rem;
+      max-width: 1200px; margin: 0 auto;
+      gap: 6rem;
+      background: var(--white);
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 48px 48px -40px rgba(24,119,186,0.08);
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    .hero-content {flex: 1; min-width: 260px;}
+    .hero-content h1 {
+      color: whitesmoke;
+      margin-bottom: 16px; line-height: 120%;
+      font-size: 40px;
+    }
+    .hero-content p {font-size: 1.3rem; margin-bottom: 32px;}
+    .btn-primary {
+      display: inline-block; background: var(--secondary); color: var(--white);
+      font-weight: 600; font-size: 1.1rem;
+      padding: .7em 2em; border-radius: 30px; border: 0; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(24, 186, 141, 0.05);
+      transition: background .2s;
+    }
+    .btn-primary:hover {background: #15a37a;}
+    .hero-img {flex: 1; min-width: 260px;}
+    .hero-img img {
+      border-radius: 16px; box-shadow: 0 4px 20px rgba(24,119,186,0.13);
+      max-height: 340px; object-fit: cover;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 4px;
+      background-color: #1877ba;
+    }
+    /* Choose Section */
+    #core-values .intro-text {
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+        text-align: center;
+        font-size: 1.15rem;
+        line-height: 1.6;
+        color: #444;
+    }
+    .core-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+    .core-card {
+        background: var(--white);
+        padding: 1.5em 1.2em;
+        border-radius: 12px;
+        box-shadow: 0 3px 16px rgba(24, 119, 186, 0.08);
+        text-align: center;
+        max-width: 250px;
+        flex: 1 1 200px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .core-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 24px rgba(24, 119, 186, 0.12);
+    }
+    .core-card i {
+        font-size: 2.3rem;
+        color: var(--secondary);
+        margin-bottom: 0.6em;
+    }
+    .core-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5em;
+    }
+    .core-card p {
+        font-size: 0.98rem;
+        color: #555;
+    }
+    .section {max-width: 1180px; margin: 2rem auto; padding: 1rem 2rem;}
+    .section h2 {
+      font-size: 2.1rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+    /* Services */
+    .services-list {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center;
+    }
+    .service-card {
+      background: var(--white); color: var(--text);
+      padding: 1.5em 1em; min-width: 230px; max-width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 3px 22px rgba(24,119,186,0.08);
+      text-align: center;
+      flex: 1 1 260px;
+      transition: box-shadow .2s;
+    }
+    .service-card:hover {box-shadow: 0 4px 28px rgba(24,119,186,0.13);}
+    .service-card i {
+      font-size: 2rem;
+      margin-bottom: 0.4em;
+      color: var(--secondary);
+    }
+    .service-card h3 {font-size: 1.13rem; margin-bottom: .7em;}
+    /* About/Doctors */
+    .about-wrapper {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      align-items: centre; justify-content: center;
+    }
+    .about-text {
+      flex: 2; min-width: 220px;
+      font-size: 1.11rem;
+      letter-spacing: 0.1px;
+    }
+    .doctor-list {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center;
+      margin-top: 1.5em;
+    }
+    .doctor-card {
+      background: var(--white);
+      border-radius: 11px;
+      box-shadow: 0 2px 13px rgba(24,119,186,0.10);
+      text-align: center;
+      padding: 1em 1.3em;
+      max-width: 180px;
+      flex: 1 1 120px;
+    }
+    .doctor-card img {
+      border-radius: 50%; max-width: 84px; margin-bottom: .6em;
+      border: 3px solid var(--primary);
+    }
+    .doctor-card h4 {margin-bottom: .2em;}
+    /* Appointment */
+    .appointment-form {
+      background: var(--white);
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 13px;
+      box-shadow: 0 2px 11px rgba(24,119,186,0.10);
+      padding: 2em 1.8em;
+      display: flex; flex-direction: column; gap: 1.1em;
+    }
+    .appointment-form input, 
+    .appointment-form select, 
+    .appointment-form textarea {
+      width: 100%; padding: .7em 1em;
+      border: 1px solid #dce4ec;
+      border-radius: 7px;
+      font-size: 1rem;
+      background: #f7fafd;
+      transition: border .2s;
+    }
+    .appointment-form input:focus, 
+    .appointment-form select:focus, 
+    .appointment-form textarea:focus {
+      border: 1.5px solid var(--primary);
+      outline: none;
+    }
+    /* Testimonials */
+    .testimonial-list {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center; align-items: stretch;
+      margin-top: 1rem;
+    }
+    .testimonial-card {
+      background: #eff7fc;
+      padding: 1.3em 1em;
+      border-radius: 12px;
+      box-shadow: 0 3px 13px rgba(24,119,186,0.050);
+      max-width: 320px;
+      font-size: 1.12rem;
+      flex: 1 1 220px;
+    }
+    .testimonial-card span {
+      display: block; margin-top: 1em;
+      font-weight: bold; color: var(--primary);
+      font-size: 0.95em;
+    }
+    /* Contact */
+    .contact-info {
+      background: var(--white);
+      max-width: 600px;
+      padding: 2em 1.5em;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 1px 8px rgba(24,119,186,0.08);
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .contact-info i {color:var(--primary); margin-right: 6px;}
+    .map-embed {margin: 2em auto 0 auto; max-width: 600px; border-radius: 10px; overflow: hidden;}
+    /* Blog Section */
+    .blogs-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .blog-card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 3px 16px rgba(24, 119, 186, 0.08);
+      overflow: hidden;
+      max-width: 340px;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .blog-card:hover {
+      box-shadow: 0 8px 28px rgba(24,119,186,0.15);
+      transform: translateY(-5px);
+    }
+    .blog-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+    .blog-card-content {
+      padding: 1.1em 1em;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: .8em;
+    }
+    .blog-card h3 {
+      font-size: 1.17rem;
+      color: var(--primary);
+    }
+    .blog-card p {
+      font-size: .97rem;
+      color: #444;
+      flex: 1;
+    }
+    .read-more {
+      color: var(--secondary);
+      font-weight: 600;
+      text-decoration: none;
+      align-self: flex-start;
+      font-size: 1em;
+      transition: .2s;
+    }
+    .read-more:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* ⭐️ Success Rate Section (Added as per request) */
+    #success-rate .intro-text {
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .success-rate-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem auto;
+      max-width: 980px;
+    }
+    .success-rate-card {
+      background: var(--white);
+      padding: 1.8em 1.5em 2em 1.5em;
+      border-radius: 12px;
+      box-shadow: 0 3px 16px rgba(24, 119, 186, 0.08);
+      flex: 1 1 220px;
+      text-align: center;
+    }
+    .success-rate-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8em;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .progress-group {
+      margin-top: 1em;
+      text-align: left;
+    }
+    .progress-group span {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 0.4em;
+      display: block;
+    }
+    .progress-wrap {
+      background: #e0eae3;
+      height: 12px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1.8em;
+    }
+    .progress-percent {
+      height: 100%;
+      background: var(--secondary);
+      border-radius: 10px;
+      transition: width 1.5s ease-in-out;
+      width: 0;
+    }
+
+    /* ⭐️ FAQ Section (Added as per request) */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--text);
+    }
+    .faq-intro {
+      text-align: center;
+      margin: 0 auto 2rem auto;
+      max-width: 640px;
+      font-size: 1.08rem;
+      line-height: 1.6;
+      color: #555;
+    }
+    .faq-item {
+      background: var(--white);
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(24,119,186,0.05);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .faq-item:hover {
+      box-shadow: 0 3px 16px rgba(24,119,186,0.10);
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 1.2em 1.4em;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: #f3f9fe;
+    }
+    .faq-question i {
+      font-size: 0.85rem;
+      transition: transform 0.2s;
+    }
+    .faq-answer {
+      padding: 0 1.2em;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease, padding 0.25s ease;
+    }
+    .faq-item.active .faq-answer {
+      padding: 0 1.2em 1.2em 1.2em;
+      max-height: 400px;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 950px) {
+      .hero {flex-direction: column;}
+      .about-wrapper, .success-rate-cards { flex-direction: column; align-items: center; }
+      .services-list, .doctor-list, .testimonial-list, .blogs-list, .core-cards {flex-direction: column; align-items: center;}
+      .blog-card { max-width: 95%; }
+      .faq-item { width: 100%; }
+    }
+    @media (max-width:600px){
+      .section, .hero{padding: 1rem;}
+      .nav-container{padding: 1rem;}
+      .logo{font-size:1.1rem;}
+      nav ul{gap:1rem;}
+    }
+      
+      .footer-section {
+  background: #0d1b45;
+  color: #fff;
+  padding: 42px 0 22px 0;
+  margin-top: 3.5rem;
+}
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footer-block {
+  flex: 1 1 220px;
+  min-width: 180px;
+  margin-bottom: 12px;
+}
+.footer-logo img {
+  width: 220px;
+  max-width: 98%;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 6px 10px 4px 0;
+}
+.footer-desc {
+  color: #f0f0f0;
+  line-height: 1.7;
+  font-size: 1.03rem;
+  margin-top: 8px;
+}
+
+.footer-title {
+  display: inline-block;
+  border-bottom: 2px solid #18ba8d;
+  padding-bottom: 4px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.12rem;
+  letter-spacing: 0.4px;
+}
+
+.footer-links a {
+  display: block;
+  color: #f0f0f0;
+  margin-bottom: 9px;
+  font-size: 1.01rem;
+  transition: color .18s;
+}
+.footer-links a:hover { color: #18ba8d; }
+.footer-contact > div {
+  margin-bottom: 8px;
+  color: #e0eafe;
+  font-size: 1rem;
+}
+.footer-contact i {
+  margin-right: 7px;
+  color: #18ba8d;
+  width:18px; 
+  text-align:center;
+}
+.footer-bottom {
+  background: #111b30;
+  text-align: center;
+  padding: 14px 5px 11px 5px;
+  color: #bbc8e4;
+  font-size: 0.94rem;
+}
+.footer-bottom a {
+  color: #18ba8d;
+  text-decoration: none;
+}
+.footer-bottom a:hover { text-decoration: underline; }
+
+/* --- Floating WhatsApp & Scroll Top Buttons (Perfect Circles) --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  left: 20px;
+  background: #25d366;
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+  border: none;
+}
+.whatsapp-float:hover {
+  background: #1ebc5e;
+}
+.scroll-top {
+  position: fixed;
+  bottom: 22px;
+  right: 20px;
+  background: #18ba8d;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  transition: background 0.2s ease;
+  border: none;
+}
+.scroll-top:hover {
+  background: #128066;
+}
+
+@media (max-width: 900px) {
+  .footer-main {flex-direction: column; gap: 1.7rem;}
+  .footer-block {min-width: 0;}
+}
+
+  
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+    <div class="nav-container">
+      <div class="logo">Ortho<span style="color:var(--secondary)">Care</span> Hospital</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <!-- ===== DROPDOWN SERVICES START ==== -->
+          <li class="nav-dropdown">
+            <a href="service.html">Services <i class="fas fa-chevron-down" style="font-size:0.8em"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="service.html">All Services</a></li>
+              <li><a href="joint_replacement.html">Joint Replacement</a></li>
+              <li><a href="Sports Injur.html">Sports Injury/Arthroscopy</a></li>
+              <li><a href="Fracture & Trauma.html">Fracture & Trauma</a></li>
+              <li><a href="Physical Therapy & Rehabilitation.html">Rehabilitation</a></li>
+              <li><a href="Minimally Invasive Surgery.html">Minimally Invasive Surgery</a></li>
+            </ul>
+          </li>
+          <!-- ===== DROPDOWN SERVICES END ===== -->
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="contact-bar" aria-label="Contact Information Marquee">
+    <div class="marquee-wrapper">
+      <div class="fade left"></div>
+      <div class="marquee-inner" role="list">
+        <div class="marquee-content">
+          <a href="tel:+919999999999" class="marquee-item" role="listitem" tabindex="0" aria-label="Phone number +91 99999 99999">
+            <i class="fas fa-phone" aria-hidden="true"></i> +91 99999 99999
+          </a>
+          <a href="https://maps.google.com/?q=Patamata, Vijayawada" class="marquee-item" role="listitem" target="_blank" rel="noopener" tabindex="0" aria-label="Location Patamata, Vijayawada">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Opp High School Bus Stop Bandar Road, Patamata, Vijayawada, Andhra Pradesh
+          </a>
+          <span class="marquee-item" role="listitem" tabindex="0" aria-label="Working hours Monday to Saturday 9 to 5">
+            <i class="fas fa-clock" aria-hidden="true"></i> Mon–Sat: 9:00–5:00
+          </span>
+
+          <!-- Duplicate for smooth loop -->
+          <a href="tel:+919999999999" class="marquee-item" role="listitem" tabindex="0" aria-label="Phone number +91 99999 99999">
+            <i class="fas fa-phone" aria-hidden="true"></i> +91 99999 99999
+          </a>
+          <a href="https://maps.google.com/?q=Patamata, Vijayawada" class="marquee-item" role="listitem" target="_blank" rel="noopener" tabindex="0" aria-label="Location Patamata, Vijayawada">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Opp High School Bus Stop Bandar Road, Patamata, Vijayawada, Andhra Pradesh
+          </a>
+          <span class="marquee-item" role="listitem" tabindex="0" aria-label="Working hours Monday to Saturday 9 to 5">
+            <i class="fas fa-clock" aria-hidden="true"></i> Mon–Sat: 9:00–5:00
+          </span>
+        </div>
+      </div>
+      <div class="fade right"></div>
+    </div>
+  </div>
+
+  </header>
+
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Expert Orthopedic & Joint Replacement Care</h1>
+      <p>
+        Regain your mobility and live pain-free. Our team of orthopedic specialists combines compassion with state-of-the-art technology for the best patient outcomes.
+      </p>
+      <a href="#appointment" class="btn-primary">Book Consultation</a>
+    </div>
+    <div class="hero-img">
+      <img src="/assets/P1.png" alt="Joint Replacement Care" />
+    </div>
+  </section>
+
+  <section class="section" id="core-values">
+    <h2>Why Choose ROH</h2>
+    <p class="intro-text">
+      At ROH, our endeavour is to provide exemplary care engulfed in compassion and patient centricity to ensure comfort and quick recovery.
+    </p>
+    <div class="core-cards">
+      <div class="core-card">
+        <i class="fas fa-hospital"></i>
+        <h3>Well Equipped</h3>
+        <p>Modern medical technology and facilities to support optimal diagnosis and treatment.</p>
+      </div>
+      <div class="core-card">
+        <i class="fas fa-user-md"></i>
+        <h3>Experienced Doctors</h3>
+        <p>Our team consists of skilled, compassionate specialists delivering world-class care.</p>
+      </div>
+      <div class="core-card">
+        <i class="fas fa-ambulance"></i>
+        <h3>Casualty</h3>
+        <p>Fully functional casualty department for trauma and accident care.</p>
+      </div>
+      <div class="core-card">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Emergency Care</h3>
+        <p>24/7 emergency response with dedicated medical and support teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⭐️ Hospital Success Rate Section -->
+  <section class="section" id="success-rate">
+    <h2>Hospital Success Rate</h2>
+    <p class="intro-text">
+      Our hospital consistently delivers outstanding clinical outcomes, thanks to our expert team, advanced technology, and personalized care plans.
+    </p>
+    <div class="success-rate-cards">
+      <div class="success-rate-card">
+        <h3>Joint Replacement</h3>
+        <div class="progress-group">
+          <span>99% Success Rate</span>
+          <div class="progress-wrap">
+            <div class="progress-percent" data-percent="99%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="success-rate-card">
+        <h3>Sports Injury Recovery</h3>
+        <div class="progress-group">
+          <span>97% Success Rate</span>
+          <div class="progress-wrap">
+            <div class="progress-percent" data-percent="97%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="success-rate-card">
+        <h3>Patient Satisfaction</h3>
+        <div class="progress-group">
+          <span>98.5% Satisfaction</span>
+          <div class="progress-wrap">
+            <div class="progress-percent" data-percent="98.5%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ⭐️ END Success Rate Section -->
+
+  <section class="section" id="services">
+    <h2>Our Specialized Services</h2>
+    <div class="services-list">
+      <div class="service-card">
+        <i class="fa-solid fa-bone"></i>
+        <h3>Total & Partial Joint Replacement</h3>
+        <p>Advanced hip, knee, and shoulder replacement with high success and recovery rates.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-running"></i>
+        <h3>Sports Injuries & Arthroscopy</h3>
+        <p>Minimally invasive procedures for sports injuries, ligament tears, and quick rehabilitation.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-bandage"></i>
+        <h3>Fracture & Trauma Care</h3>
+        <p>24/7 expert trauma, fracture repair, and critical injury management.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-user-nurse"></i>
+        <h3>Minimally Invasive Surgery</h3>
+        <p>Faster recovery and reduced pain with the latest minimally invasive techniques.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <h3>Physical Therapy & Rehabilitation</h3>
+        <p>Personalized programs to help you regain strength, flexibility, and full function.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>Meet Our Doctors</h2>
+    <div class="about-wrapper">
+      <div class="about-text">
+        <b>Roopa Orthopaedic and Joint Replacement Hospital</b> is an exclusive orthopedic hospital with international standards. This 30 bedded specialty health care center is managed by an experienced Orthopaedic and Joint Replacement Surgeon who monitors personally round the clock<br>
+        Our center is located at prime area Patamata, Vijayawada.
+      </div>
+      <div>
+        <div class="doctor-list">
+          <div class="doctor-card">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Dr. S. Kumar">
+            <h4>Dr. S. Kumar</h4>
+            <span>Chief Orthopedic Surgeon</span>
+          </div>
+          <div class="doctor-card">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. P. Lata">
+            <h4>Dr. P. Lata</h4>
+            <span>Joint Replacement Specialist</span>
+          </div>
+          <div class="doctor-card">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. R. Patel">
+            <h4>Dr. R. Patel</h4>
+            <span>Sports Injury Expert</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="appointment">
+    <h2>Book an Appointment</h2>
+    <form class="appointment-form" autocomplete="off">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email, required"/>
+      <input type="tel" name="phone" placeholder="Mobile Number" required/>
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option>Joint Replacement</option>
+        <option>Sports Injury/Arthroscopy</option>
+        <option>Physical Therapy</option>
+        <option>Other/Consultation</option>
+      </select>
+      <input type="date" name="date" required />
+      <textarea name="message" rows="3" placeholder="Briefly describe your concern…"></textarea>
+      <button class="btn-primary" type="submit">Submit Appointment Request</button>
+    </form>
+    <div style="text-align:center; margin-top:1em;">
+      <strong>Or call us:</strong> <span style="color:var(--primary); font-weight:bold;">+91 1 2345 6789</span>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <h2>Patient Success Stories</h2>
+    <div class="testimonial-list">
+      <div class="testimonial-card">
+        “After my knee surgery, I'm more active than ever. The care at OrthoCare made my recovery smooth and stress-free.”
+        <span>— Geeta R.</span>
+      </div>
+      <div class="testimonial-card">
+        “Professional staff and modern facilities. I recommend anyone who needs bone or joint care.”
+        <span>— Rajiv S.</span>
+      </div>
+      <div class="testimonial-card">
+        “Got back to sports after a severe shoulder injury. Grateful to the doctors and physio team!”
+        <span>— Ameer H.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blogs">
+    <h2>Latest Health Insights & Blog</h2>
+    <div class="blogs-list">
+      <article class="blog-card">
+        <img src="/practice/Images/Beach.jpg" alt="Benefits of Early Joint Replacement">
+        <div class="blog-card-content">
+          <h3>5 Key Benefits of Early Joint Replacement</h3>
+          <p>
+            Discover how timely joint surgery can improve mobility, reduce long-term pain, and speed your return to an active lifestyle. Our chief surgeon explains when to consider intervention for lasting results.
+          </p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <img src="/practice/Images/Beach.jpg" alt="Preventing Sports Injuries">
+        <div class="blog-card-content">
+          <h3>Preventing Sports Injuries: Tips from Our Experts</h3>
+          <p>
+            Our sports injury specialist shares practical advice on injury prevention, safe training habits, and the latest advancements in arthroscopic treatments for athletes of all levels.
+          </p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <img src="/practice/Images/Beach.jpg" alt="Your Guide to Recovery After Surgery">
+        <div class="blog-card-content">
+          <h3>Your Guide to Recovery After Orthopedic Surgery</h3>
+          <p>
+            What does a successful recovery look like? Our physiotherapy team outlines proven post-surgical care, rehabilitation strategies, and lifestyle changes for the best outcomes.
+          </p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!--  Frequently Asked Questions (FAQ) Section -->
+  <section class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-intro">
+      Here you'll find quick answers to common questions about OrthoCare Hospital’s services, appointments, and what to expect from your visit.
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">How do I book an appointment?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>You can book an appointment online via our Appointment section above, call us at <a href="tel:+919999999999" style="color: var(--primary); font-weight: 600;">+91 99999 99999</a>, or visit our hospital in person.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What should I bring to my first appointment?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Please bring your ID, insurance details (if applicable), any previous medical reports, and a list of current medications.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How do I prepare for surgery?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Our team will provide detailed instructions before your procedure. Generally, you should fast for 6-8 hours before surgery, wear comfortable clothing, and arrange for someone to drive you home.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What are your visiting hours?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Visiting hours are typically 9:00 AM to 5:00 PM, Monday to Saturday. Please check with our staff for updates, especially for ICU and recovery areas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you accept insurance plans?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>We accept a wide range of insurance plans. Please contact our billing department at +91 99999 99999 to verify your coverage before your visit.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What COVID-19 precautions do you have in place?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>We follow all government guidelines for hospital safety, including regular sanitization, mask requirements, and social distancing in waiting areas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What is your cancellation policy?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>If you need to reschedule or cancel your appointment, please call us at least 24 hours in advance. This helps us accommodate other patients in need of care.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is parking available?<i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">
+          <p>Yes, we have dedicated free parking available for patients and visitors on our premises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END FAQ Section -->
+
+
+
+
+  <!-- ✅ REPLACED AND UPGRADED FOOTER SECTION -->
+  <section class="footer-section">
+    <div class="footer-main">
+      <div class="footer-block">
+        <div class="footer-logo">
+          <img src="#" alt="OrthoCare Logo">
+        </div>
+        <p class="footer-desc">
+          Our goal is to deliver quality care in a courteous, respectful, and compassionate manner.<br>
+          We strive to be your family's first and best choice in healthcare.
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-title">Services</div>
+        <div class="footer-links">
+          <a href="#services">Joint Replacement</a>
+          <a href="#services">Sports Injury</a>
+          <a href="#services">Fracture & Trauma</a>
+          <a href="#services">Rehabilitation</a>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#blogs">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-title">Quick Contact</div>
+        <div class="footer-contact">
+          <div><i class="fas fa-phone-alt"></i> +91 99999 99999</div>
+          <div><i class="fas fa-map-marker-alt"></i> Opp High School Bus Stop, Patamata, Vijayawada</div>
+          <div><i class="fas fa-envelope"></i> info@orthocare.com</div>
+          <div style="margin-top:10px;">
+            <a href="#"><i class="fab fa-facebook-f" style="color:#1877f2;"></i></a>
+            <a href="#"><i class="fab fa-instagram" style="color:#e7477c;"></i></a>
+            <a href="#"><i class="fas fa-envelope" style="color:#18ba8d;"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-bottom">
+    © 2025 OrthoCare Hospital | Orthopedic & Joint Replacement Specialists<br>
+    Made with <span style="color: #e25555;">❤</span> by <a href="#">Shashank.K</a>
+  </div>
+
+  <!-- Floating WhatsApp + Scroll Top -->
+  <a href="#" class="whatsapp-float" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" title="Go to top"><i class="fas fa-arrow-up"></i></div>
+
+
+  <script>
+    // Animate progress bars on scroll
+    function animateBars() {
+      const wrappers = document.querySelectorAll('.progress-percent');
+      wrappers.forEach(item => {
+        if (isInViewport(item)) {
+          let percent = item.parentNode.parentNode.querySelector('span').textContent.match(/\d+([.]\d+)?/)[0];
+          item.style.width = percent + '%';
+        }
+      });
+    }
+    
+    // Helper: Check if element is visible
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+    }
+
+    // On page load and scroll
+    document.addEventListener('DOMContentLoaded', animateBars);
+    window.addEventListener('scroll', animateBars);
+
+    // FAQ accordion functionality
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.closest('.faq-item');
+        faqItem.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

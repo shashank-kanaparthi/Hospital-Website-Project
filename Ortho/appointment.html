@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment | OrthoCare Hospital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  
+  <style>
+    :root {
+  --primary: #1877ba;
+  --secondary: #18ba8d;
+  --bg: #f7fafd;
+  --text: #222;
+  --white: #fff;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+/* Header & Navigation */
+header {
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5rem;
+  text-align: center;
+}
+.logo {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+nav ul {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+  text-align: center;
+}
+nav ul li a {
+  font-weight: 500;
+  padding: 0.3em 1em;
+  border-radius: 20px;
+  color: #222;
+  text-align: center;
+}
+  nav ul li a:hover {
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+    }
+
+    nav ul li a.active {
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+  }
+
+
+/* Contact Bar */
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: var(--primary);
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  color: #ecf7ff;
+}
+.contact-bar span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Appointment Section */
+.appt-section {
+  min-height: 93vh;
+  padding: 60px 0 120px; /* Added bottom padding to force dropdown down */
+  background: linear-gradient(120deg, #f8fafe 60%, #eaf9f3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appt-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 40px;
+  max-width: 430px;
+  width: 100%;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
+  overflow: visible; /* Important for dropdown direction */
+}
+
+.appt-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.appt-note {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Form Controls (including select) */
+.form-group label {
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.form-control, select.form-control {
+  border-radius: 30px;
+  border: 1.2px solid #b8e3f9;
+  padding: 12px 18px;
+  font-size: 1.01rem;
+  margin-bottom: 14px;
+  height: 50px !important;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Dropdown Fix: Prevent placeholder cut and force downward open */
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23000' viewBox='0 0 140 140' width='14' height='14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M70 98L10 30h120z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.75rem;
+  padding-right: 2.5rem;
+  overflow: visible;
+}
+select.form-control:invalid {
+  color: #999;
+}
+select option[value=""] {
+  color: #999;
+}
+
+/* Focus States */
+.form-control:focus,
+select.form-control:focus {
+  border-color: #18ba8d;
+  box-shadow: 0 1px 0 #18ba8d1a;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Button */
+.appt-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #18ba8d, #1877ba 85%);
+  color: #fff;
+  border: none;
+  padding: 14px 0;
+  border-radius: 30px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 2px 9px rgba(24,119,186,0.08);
+  letter-spacing: 0.03em;
+}
+.appt-btn:hover,
+.appt-btn:focus {
+  background: linear-gradient(90deg,#1877ba,#18ba8d 90%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(24,186,141,0.11);
+}
+
+/* Confirmation Message */
+.appt-confirm {
+  text-align: center;
+  color: #18ba8d;
+  font-size: 1.1rem;
+  padding-top: 18px;
+  font-weight: 500;
+  display: none;
+}
+
+/* Footer */
+.footer-section {
+  background: #0d1b45;
+  color: #fff;
+  padding: 50px 0 24px 0;
+  margin-top: 4rem;
+}
+.footer-main {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.3rem;
+}
+.footer-block {
+  flex: 1 1 225px;
+  min-width: 180px;
+  margin-bottom: 12px;
+}
+.footer-logo img {
+  width: 220px;
+  max-width: 98%;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px 14px 6px 0;
+}
+.footer-desc {
+  color: #f0f0f0;
+  line-height: 1.66;
+  font-size: 1.04rem;
+  margin-top: 8px;
+  opacity: 0.92;
+}
+.footer-title {
+  border-bottom: 2.5px solid #18ba8d;
+  padding-bottom: 3px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 1.14rem;
+  letter-spacing: 0.38px;
+  color: #faffff;
+}
+.footer-links a {
+  color: #f0f0f0;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.01rem;
+  transition: color .18s;
+}
+.footer-links a:hover {
+  color: #18ba8d;
+}
+.footer-contact > div {
+  margin-bottom: 9px;
+  color: #e0eafe;
+  font-size: 1.02rem;
+}
+.footer-contact i {
+  margin-right: 7px;
+  color: #18ba8d;
+  width: 18px;
+  text-align: center;
+}
+.footer-bottom {
+  background: #111b30;
+  text-align: center;
+  padding: 14px 5px 10px 5px;
+  color: #bbc8e4;
+  font-size: 0.99rem;
+  letter-spacing: 0.04em;
+}
+.footer-bottom a {
+  color: #18ba8d;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Scroll Top & WhatsApp */
+.whatsapp-float,
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  box-shadow: 0 4px 18px rgba(24, 119, 186, 0.16);
+  transition: background 0.22s;
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-float {
+  left: 20px;
+  background: #25d366;
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  font-size: 27px;
+}
+.whatsapp-float:hover {
+  background: #1ebc5e;
+}
+
+.scroll-top {
+  right: 20px;
+  background: #18ba8d;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+.scroll-top:hover {
+  background: #128066;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  nav ul li,
+  nav a {
+    width: 100%;
+  }
+  .contact-bar {
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+}
+@media (max-width: 991px) {
+  .doctor-card { padding: 28px 14px; }
+}
+@media (max-width: 767px) {
+  .doctor-section { padding: 54px 0 38px 0; }
+  .doctor-card { margin-bottom: 28px; }
+  .section-title { font-size: 1.6rem; }
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+  <div class="nav-container">
+    <div class="logo">Ortho<span style="color:var(--secondary)">Care</span> Hospital</div>
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="appointment.html"class="active">Appointment</a></li>
+          <!-- ===== DROPDOWN SERVICES START ==== -->
+          <li class="nav-dropdown">
+            <a href="service.html">Services <i class="fas fa-chevron-down" style="font-size:0.8em"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="service.html">All Services</a></li>
+              <li><a href="joint_replacement.html">Joint Replacement</a></li>
+              <li><a href="Sports Injur.html">Sports Injury/Arthroscopy</a></li>
+              <li><a href="Fracture & Trauma.html">Fracture & Trauma</a></li>
+              <li><a href="Physical Therapy & Rehabilitation.html">Rehabilitation</a></li>
+              <li><a href="Minimally Invasive Surgery.html">Minimally Invasive Surgery</a></li>
+            </ul>
+          </li>
+          <!-- ===== DROPDOWN SERVICES END ===== -->
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  </div>
+  <div class="contact-bar">
+    <span><i class="fas fa-phone"></i> +91 99999 99999</span>
+    <span><i class="fas fa-map-marker-alt"></i>Opp High School Bus Stop Bandar Road, Patamata, Vijayawada, Andhra Pradesh</span>
+    <span><i class="fas fa-clock"></i> Mon-Sat: 9:00-5:00 </span>
+  </div>
+</header>
+
+
+
+<!-- Appointment Section -->
+<section class="appt-section">
+  <div class="appt-card">
+    <div class="appt-title">
+      <i class="fa-regular fa-calendar-check"></i> Book an Appointment
+    </div>
+    <div class="appt-note">
+      Please fill out the form below. Our team will contact you with confirmation.
+    </div>
+
+    <form id="appointmentForm" autocomplete="off">
+      <div class="form-group">
+        <label for="patientName">Full Name</label>
+        <input type="text" class="form-control" id="patientName" name="patientName" required>
+      </div>
+      <div class="form-group">
+        <label for="patientPhone">Phone Number</label>
+        <input type="tel" class="form-control" id="patientPhone" name="patientPhone" required pattern="[0-9 ]{10,}">
+      </div>
+      <div class="form-group">
+        <label for="patientEmail">Email Address</label>
+        <input type="email" class="form-control" id="patientEmail" name="patientEmail">
+      </div>
+      <div class="form-group">
+        <label for="doctor">Select Doctor/Specialty</label>
+        <select class="form-control" id="doctor" name="doctor" required>
+          <option value="" selected hidden>Please select a doctor or specialty</option>
+          <optgroup label="Joint Replacement/Orthopaedics">
+            <option value="Dr. M. V. Hari Prasad">Dr. M. V. Hari Prasad - Joint Replacement</option>
+            <option value="Dr. K Mohan Suresh Babu">Dr. K Mohan Suresh Babu - Orthopaedics</option>
+          </optgroup>
+          <optgroup label="Spine Surgery">
+            <option value="Dr. K V Ram Kishore">Dr. K V Ram Kishore - Spine Surgery</option>
+          </optgroup>
+          <optgroup label="General & Laparoscopic Surgery">
+            <option value="Dr. P Krishna Vasist">Dr. P Krishna Vasist - General Surgery</option>
+          </optgroup>
+          <optgroup label="Plastic & Cosmetic Surgery">
+            <option value="Dr. B Viraja">Dr. B Viraja - Plastic Surgery</option>
+          </optgroup>
+          <optgroup label="Oral Maxillofacial">
+            <option value="Dr. B. Saileesh">Dr. B. Saileesh - OMFS</option>
+          </optgroup>
+          <optgroup label="Physiotherapy">
+            <option value="Mr. Revanth">Mr. Revanth - Ortho Rehab</option>
+          </optgroup>
+          <optgroup label="Other Specialists">
+            <option value="Dr. M. V. Viswanath">Dr. M. V. Viswanath - Nephrology</option>
+            <option value="Dr. Balakrishna">Dr. Balakrishna - Neurology</option>
+            <option value="Dr. Jaswanth">Dr. Jaswanth - Pulmonology</option>
+            <option value="Dr. Trivedi">Dr. Trivedi - Urology</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Preferred Date</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Preferred Time</label>
+        <input type="time" class="form-control" id="time" name="time" required>
+      </div>
+      <div class="form-group">
+        <label for="notes">Reason for Visit (Optional)</label>
+        <textarea class="form-control" id="notes" name="notes" rows="2" maxlength="150"></textarea>
+      </div>
+      <button type="submit" class="appt-btn">Book Appointment</button>
+      <div class="appt-confirm" id="apptConfirm">
+        <i class="fa-solid fa-circle-check"></i> Appointment request sent! We will reach you soon.
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Footer Section -->
+<section class="footer-section">
+  <div class="footer-main">
+    <div class="footer-block">
+      <div class="footer-logo">
+        <img src="#" alt="OrthoCare Logo">
+      </div>
+      <p class="footer-desc">
+        Our goal is to deliver quality care in a courteous, respectful, and compassionate manner.<br>
+        We strive to be your family's first and best choice in healthcare.
+      </p>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Services</div>
+      <div class="footer-links">
+        <a href="#services">Joint Replacement</a>
+        <a href="#services">Sports Injury</a>
+        <a href="#services">Fracture & Trauma</a>
+        <a href="#services">Rehabilitation</a>
+      </div>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#blogs">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Quick Contact</div>
+      <div class="footer-contact">
+        <div><i class="fas fa-phone-alt"></i> +91 99999 99999</div>
+        <div><i class="fas fa-map-marker-alt"></i> Opp High School Bus Stop, Patamata, Vijayawada</div>
+        <div><i class="fas fa-envelope"></i> info@orthocare.com</div>
+        <div style="margin-top:10px;">
+          <a href="#"><i class="fab fa-facebook-f" style="color:#1877f2;"></i></a>
+          <a href="#"><i class="fab fa-instagram" style="color:#e7477c;"></i></a>
+          <a href="#"><i class="fas fa-envelope" style="color:#18ba8d;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer-bottom">
+  © 2025 OrthoCare Hospital | Orthopedic & Joint Replacement Specialists<br>
+  Made with <span style="color: #e25555;">❤</span> by <a href="#">Shashank.K</a>
+</div>
+
+<!-- Floating WhatsApp + Scroll Top -->
+<a href="#" class="whatsapp-float" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" title="Go to top"><i class="fas fa-arrow-up"></i></div>
+
+
+<!-- Scripts -->
+<script>
+  // Set minimum allowed date
+  document.getElementById('date').min = new Date().toISOString().slice(0,10);
+
+  // Handle form submission + reset
+  document.getElementById('appointmentForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    
+    const confirmBox = document.getElementById('apptConfirm');
+    confirmBox.style.display = 'block';
+
+    setTimeout(() => {
+      confirmBox.style.display = 'none';
+    }, 5000);
+
+    this.reset();
+    document.getElementById('doctor').selectedIndex = 0; // Reset dropdown placeholder manually
+  });
+</script>
+
+</body>
+</html>

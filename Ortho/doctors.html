@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Doctors | OrthoCare Hospital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1877ba;
+      --secondary: #18ba8d;
+      --bg: #f7fafd;
+      --text: #222;
+      --white: #fff;
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Poppins', Arial, sans-serif; background: var(--bg); color: var(--text);}
+    a {color: inherit; text-decoration: none; transition: 0.2s;}
+    ul {list-style: none;}
+    img {max-width: 100%;}
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align everything to the left */
+  gap: 5rem; /* Space between logo and nav */
+}
+
+.logo {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-right: 1rem; /* Space after logo */
+}
+
+nav ul {
+  display: flex;
+  gap: 1.8rem; /* Space between each nav link */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li a {
+  font-weight: 500;
+  padding: 0.3em 1em;
+  border-radius: 20px;
+  transition: 0.2s;
+  color: #222; /* Default link color */
+  display: inline-block;
+}
+
+nav ul li a:hover {
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+    }
+
+nav ul li a.active {
+ background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+  }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: var(--primary);
+      padding: 0.7rem 2rem;
+      font-size: 1.04rem;
+      color: #ecf7ff;
+    }
+    .contact-bar span {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0.3rem 0;
+      font-size: 1rem;
+    }
+    .contact-bar i {
+      color: #eaf9f3;
+      font-size: 1.03em;
+    }
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-direction: column; width: 100%; margin-top: 1rem; }
+      nav ul li { width: 100%; }
+      nav a { width: 100%; padding: 10px 0; }
+      .contact-bar { flex-direction: column; gap: 0.55rem; }
+    }
+
+/* Doctor Section */
+.doctor-section {
+  padding: 70px 0 60px 0;
+  background: var(--gradient);
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #17406e;
+  margin-bottom: 2.7rem;
+  letter-spacing: 0.7px;
+}
+.doctor-card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  padding: 32px 22px 28px 22px;
+  margin-bottom: 34px;
+  text-align: center;
+  transition: transform .18s cubic-bezier(.65,.45,.25,1), box-shadow .18s;
+  position: relative;
+  border: 1.5px solid #e6f1f7;
+}
+.doctor-card:hover {
+  transform: translateY(-7px) scale(1.021);
+  box-shadow: var(--card-hover-shadow);
+  border-color: #b9f3e3;
+  z-index: 1;
+}
+.doctor-photo {
+  display: block;
+  margin: 0 auto 18px auto; /* Perfectly centers image inside card */
+  width: 108px;
+  height: 108px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #e4fcf7;
+  box-shadow: 0 2px 16px rgba(24,119,186,0.055);
+  background: #f5faff;
+}
+.doctor-name {
+  font-size: 1.17rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #1877ba;
+  margin-bottom: 3px;
+}
+.doctor-qual {
+  font-size: 0.99rem;
+  color: #75798c;
+}
+.doctor-role {
+  font-size: 1.09rem;
+  color: var(--secondary);
+  margin-top: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+/* Footer Styling */
+.footer-section {
+  background: #0d1b45;
+  color: #fff;
+  padding: 50px 0 24px 0;
+  margin-top: 4rem;
+}
+.footer-main {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.3rem;
+}
+.footer-block {
+  flex: 1 1 225px;
+  min-width: 180px;
+  margin-bottom: 12px;
+}
+.footer-logo img {
+  width: 220px;
+  max-width: 98%;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px 14px 6px 0;
+}
+.footer-desc {
+  color: #f0f0f0;
+  line-height: 1.66;
+  font-size: 1.04rem;
+  margin-top: 8px;
+  opacity: 0.92;
+}
+.footer-title {
+  border-bottom: 2.5px solid #18ba8d;
+  padding-bottom: 3px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 1.14rem;
+  letter-spacing: 0.38px;
+  color: #faffff;
+  display: inline-block;
+}
+.footer-links a {
+  display: block;
+  color: #f0f0f0;
+  margin-bottom: 8px;
+  font-size: 1.01rem;
+  transition: color .18s;
+  opacity: .96;
+}
+.footer-links a:hover { color: #18ba8d; }
+.footer-contact > div {
+  margin-bottom: 9px;
+  color: #e0eafe;
+  font-size: 1.02rem;
+}
+.footer-contact i {
+  margin-right: 7px;
+  color: #18ba8d;
+  width: 18px;
+  text-align: center;
+}
+.footer-bottom {
+  background: #111b30;
+  text-align: center;
+  padding: 14px 5px 10px 5px;
+  color: #bbc8e4;
+  font-size: 0.99rem;
+  letter-spacing: 0.04em;
+}
+.footer-bottom a {
+  color: #18ba8d;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-bottom a:hover { text-decoration: underline; }
+@media (max-width: 900px) {
+  .footer-main { flex-direction: column; gap: 1.7rem; }
+  .footer-block { min-width: 0; }
+}
+
+/* Floating WhatsApp & Scroll Top Buttons */
+.whatsapp-float, .scroll-top {
+  position: fixed;
+  bottom: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  box-shadow: 0 4px 18px rgba(24, 119, 186, 0.16);
+  transition: background 0.22s;
+  border: none;
+  cursor: pointer;
+}
+.whatsapp-float {
+  left: 20px;
+  background: #25d366;
+  color: #fff;
+  width: 56px; height: 56px;
+  font-size: 27px;
+}
+.whatsapp-float:hover { background: #1ebc5e; }
+.scroll-top {
+  right: 20px;
+  background: #18ba8d;
+  color: #fff;
+  width: 50px; height: 50px;
+  font-size: 20px;
+}
+.scroll-top:hover { background: #128066; }
+
+/* Responsive doctor cards */
+@media (max-width: 991px) {
+  .doctor-card { padding: 28px 14px; }
+}
+@media (max-width: 767px) {
+  .doctor-section { padding: 54px 0 38px 0; }
+  .doctor-card { margin-bottom: 28px; }
+  .section-title { font-size: 1.6rem; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Ortho<span style="color:var(--secondary)">Care</span> Hospital</div>
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="doctors.html" class="active">Doctors</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <!-- ===== DROPDOWN SERVICES START ==== -->
+          <li class="nav-dropdown">
+            <a href="service.html">Services <i class="fas fa-chevron-down" style="font-size:0.8em"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="service.html">All Services</a></li>
+              <li><a href="joint_replacement.html">Joint Replacement</a></li>
+              <li><a href="Sports Injur.html">Sports Injury/Arthroscopy</a></li>
+              <li><a href="Fracture & Trauma.html">Fracture & Trauma</a></li>
+              <li><a href="Physical Therapy & Rehabilitation.html">Rehabilitation</a></li>
+              <li><a href="Minimally Invasive Surgery.html">Minimally Invasive Surgery</a></li>
+            </ul>
+          </li>
+          <!-- ===== DROPDOWN SERVICES END ===== -->
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  </div>
+  <div class="contact-bar">
+    <span><i class="fas fa-phone"></i> +91 99999 99999</span>
+    <span><i class="fas fa-map-marker-alt"></i>Opp High School Bus Stop Bandar Road, Patamata, Vijayawada, Andhra Pradesh</span>
+    <span><i class="fas fa-clock"></i> Mon-Sat: 9:00-5:00 </span>
+  </div>
+</header>
+
+
+<!-- Doctors Section -->
+<section class="doctor-section">
+  <div class="container">
+    <h2 class="section-title">Meet Our Specialists</h2>
+    <div class="row justify-content-center">
+      <!-- Doctor cards START -->
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="/assets/P1.png" class="doctor-photo" alt="Dr. Hari Prasad">
+          <div class="doctor-name">Dr. M. V. Hari Prasad</div>
+          <div class="doctor-qual">MS (Ortho), M.Ch (Ortho)</div>
+          <div class="doctor-role">Trauma & Joint Replacement Surgeon</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="/assets/P1.png" class="doctor-photo" alt="Dr. Ram Kishore">
+          <div class="doctor-name">Dr. K V Ram Kishore</div>
+          <div class="doctor-qual">MS, FNB (Spine Surgery)</div>
+          <div class="doctor-role">Spine Surgery Specialist</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="/assets/P1.png" class="doctor-photo" alt="Dr. Vasist">
+          <div class="doctor-name">Dr. P Krishna Vasist</div>
+          <div class="doctor-qual">DNB (GS)</div>
+          <div class="doctor-role">General & Laparoscopic Surgeon</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="/assets/P1.png" class="doctor-photo" alt="Dr. Viraja">
+          <div class="doctor-name">Dr. B Viraja</div>
+          <div class="doctor-qual">MS, M.Ch (Plastic)</div>
+          <div class="doctor-role">Plastic & Cosmetic Surgeon</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="/assets/P1.png" class="doctor-photo" alt="Dr. Saileesh">
+          <div class="doctor-name">Dr. B. Saileesh</div>
+          <div class="doctor-qual">MDS (OMFS)</div>
+          <div class="doctor-role">Oral Maxillofacial Surgeon</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="/assets/P1.png" class="doctor-photo" alt="Dr. Prakash Kumar">
+          <div class="doctor-name">Dr. B Prakash Kumar</div>
+          <div class="doctor-qual">DA (Anaesthesia)</div>
+          <div class="doctor-role">Anaesthesia Specialist</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/100" class="doctor-photo" alt="Dr. Chandramouli">
+          <div class="doctor-name">Dr. Ch. Chandramouli</div>
+          <div class="doctor-qual">DA (Anaesthesia)</div>
+          <div class="doctor-role">Anaesthesia & ICU Specialist</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/100" class="doctor-photo" alt="Dr. Mohan Suresh Babu">
+          <div class="doctor-name">Dr. K Mohan Suresh Babu</div>
+          <div class="doctor-qual">DiR. Orthopaedics</div>
+          <div class="doctor-role">Orthopaedic Surgeon</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/100" class="doctor-photo" alt="Mr. Revanth">
+          <div class="doctor-name">Mr. Revanth</div>
+          <div class="doctor-qual">Physiotherapist</div>
+          <div class="doctor-role">Ortho Rehab Specialist</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/100" class="doctor-photo" alt="Dr. Viswanath">
+          <div class="doctor-name">Dr. M. V. Viswanath</div>
+          <div class="doctor-qual">MD, DM, DrNB (Nephro)</div>
+          <div class="doctor-role">Nephrologist</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/100" class="doctor-photo" alt="Dr. Balakrishna">
+          <div class="doctor-name">Dr. Balakrishna</div>
+          <div class="doctor-qual">MBBS, DNB, DM</div>
+          <div class="doctor-role">Neurologist</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/100" class="doctor-photo" alt="Dr. Jaswanth">
+          <div class="doctor-name">Dr. Jaswanth</div>
+          <div class="doctor-qual">Pulmonology</div>
+          <div class="doctor-role">Pulmonologist</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="doctor-card">
+          <img src="/assets/P1.png" class="doctor-photo" alt="Dr. Trivedi">
+          <div class="doctor-name">Dr. Trivedi</div>
+          <div class="doctor-qual">MS, M.Ch</div>
+          <div class="doctor-role">Urologist</div>
+        </div>
+      </div>
+      <!-- Doctor cards END -->
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<section class="footer-section">
+  <div class="footer-main">
+    <div class="footer-block">
+      <div class="footer-logo">
+        <img src="#" alt="OrthoCare Logo">
+      </div>
+      <p class="footer-desc">
+        Our goal is to deliver quality care in a courteous, respectful, and compassionate manner.<br>
+        We strive to be your family's first and best choice in healthcare.
+      </p>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Services</div>
+      <div class="footer-links">
+        <a href="#services">Joint Replacement</a>
+        <a href="#services">Sports Injury</a>
+        <a href="#services">Fracture & Trauma</a>
+        <a href="#services">Rehabilitation</a>
+      </div>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#blogs">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-block">
+      <div class="footer-title">Quick Contact</div>
+      <div class="footer-contact">
+        <div><i class="fas fa-phone-alt"></i> +91 99999 99999</div>
+        <div><i class="fas fa-map-marker-alt"></i> Opp High School Bus Stop, Patamata, Vijayawada</div>
+        <div><i class="fas fa-envelope"></i> info@orthocare.com</div>
+        <div style="margin-top:10px;">
+          <a href="#"><i class="fab fa-facebook-f" style="color:#1877f2;"></i></a>
+          <a href="#"><i class="fab fa-instagram" style="color:#e7477c;"></i></a>
+          <a href="#"><i class="fas fa-envelope" style="color:#18ba8d;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer-bottom">
+  © 2025 OrthoCare Hospital | Orthopedic & Joint Replacement Specialists<br>
+  Made with <span style="color: #e25555;">❤</span> by <a href="#">Shashank.K</a>
+</div>
+
+<!-- Floating WhatsApp + Scroll Top -->
+<a href="#" class="whatsapp-float" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" title="Go to top"><i class="fas fa-arrow-up"></i></div>
+
+</body>
+</html>

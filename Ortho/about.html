@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | OrthoCare Hospital</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --primary: #1877ba;
+      --secondary: #18ba8d;
+      --bg: #f7fafd;
+      --text: #222;
+      --white: #fff;
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Poppins', Arial, sans-serif; background: var(--bg); color: var(--text);}
+    a {color: inherit; text-decoration: none; transition: 0.2s;}
+    ul {list-style: none;}
+    img {max-width: 100%;}
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align everything to the left */
+  gap: 5rem; /* Space between logo and nav */
+}
+
+.logo {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-right: 1rem; /* Space after logo */
+}
+
+nav ul {
+  display: flex;
+  gap: 1.8rem; /* Space between each nav link */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li a {
+  font-weight: 500;
+  padding: 0.3em 1em;
+  border-radius: 20px;
+  transition: 0.2s;
+  color: #222; /* Default link color */
+  display: inline-block;
+}
+
+nav ul li a:hover {
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+    }
+
+nav ul li a.active {
+ background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(24, 119, 186, 0.09);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(24, 119, 186, 0.10);
+    text-decoration: none;
+  }
+
+
+   .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: var(--primary);
+      padding: 0.7rem 2rem;
+      font-size: 1.04rem;
+      color: #ecf7ff;
+    }
+    .contact-bar span {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0.3rem 0;
+      font-size: 1rem;
+    }
+    .contact-bar i {
+      color: #eaf9f3;
+      font-size: 1.03em;
+    }
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-direction: column; width: 100%; margin-top: 1rem; }
+      nav ul li { width: 100%; }
+      nav a { width: 100%; padding: 10px 0; }
+      .contact-bar { flex-direction: column; gap: 0.55rem; }
+    }
+
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    .about-header {
+      background: url('https://source.unsplash.com/1600x500/?hospital,healthcare') center center/cover no-repeat;
+      height: 350px;
+      position: relative;
+    }
+
+    .about-header::before {
+      content: "";
+      background-color: #18ba8d;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+    }
+
+    .about-header h1 {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    .about-section {
+      padding: 60px 0;
+    }
+
+    .about-title {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .about-image {
+      border-radius: 12px;
+      width: 100%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .stat-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .stat-box i {
+      font-size: 30px;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .cta-section {
+      background-color: #007bff;
+      color: #fff;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cta-section .btn {
+      font-size: 18px;
+      padding: 12px 30px;
+    }
+
+    .contact-details {
+      background-color:  #004080;
+      padding: 40px 0;
+      font-size: 16px;
+      color: white;
+    }
+
+    .contact-details i {
+      color: white;
+      margin-right: 10px;
+    }
+
+    .rounded-circle {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .shadow-sm {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important;
+    }
+
+    .testimonial-section {
+      background: linear-gradient(120deg, #eaf4ff 0%, #f7fafd 100%);
+      padding: 60px 0;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 28px 0 rgba(28, 35, 107, 0.10), 0 1.5px 5px 0 rgba(28, 35, 107, 0.08);
+      padding: 35px 25px 25px 25px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 14px 44px 0 rgba(28, 35, 107, 0.16), 0 4px 15px 0 rgba(28, 35, 107, 0.12);
+    }
+
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      margin: -70px auto 12px auto;
+      background: linear-gradient(120deg, #d1eaff 70%, #fff 100%);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3.5px solid #eaf4ff;
+      box-shadow: 0 2px 12px rgba(28, 35, 107, 0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-avatar img {
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .testimonial-quote {
+      font-size: 1.07rem;
+      font-style: italic;
+      color: #374366;
+      min-height: 78px;
+    }
+
+    .testimonial-stars {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-name {
+      font-size: 1.09rem;
+      font-weight: 600;
+      color: #24386a;
+      margin-top: 10px;
+    }
+
+    .testimonial-role {
+      font-size: 0.95rem;
+      color: #007bff;
+      font-weight: 500;
+      margin-bottom: 7px;
+    }
+
+    @media (max-width: 767.98px) {
+      .testimonial-card { margin-top: 44px; }
+      .testimonial-section { padding: 40px 0; }
+    }
+
+    @media (max-width: 575.98px) {
+      .testimonial-section { padding: 20px 0; }
+      .testimonial-card { padding: 25px 10px 17px 10px; }
+      .testimonial-avatar { width: 68px; height: 68px; }
+      .testimonial-avatar img { width: 64px; height: 64px; }
+    }
+          
+      .footer-section {
+  background: #0d1b45;
+  color: #fff;
+  padding: 42px 0 22px 0;
+  margin-top: 3.5rem;
+}
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footer-block {
+  flex: 1 1 220px;
+  min-width: 180px;
+  margin-bottom: 12px;
+}
+.footer-logo img {
+  width: 220px;
+  max-width: 98%;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 6px 10px 4px 0;
+}
+.footer-desc {
+  color: #f0f0f0;
+  line-height: 1.7;
+  font-size: 1.03rem;
+  margin-top: 8px;
+}
+
+.footer-title {
+  display: inline-block;
+  border-bottom: 2px solid #18ba8d;
+  padding-bottom: 4px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.12rem;
+  letter-spacing: 0.4px;
+}
+
+.footer-links a {
+  display: block;
+  color: #f0f0f0;
+  margin-bottom: 9px;
+  font-size: 1.01rem;
+  transition: color .18s;
+}
+.footer-links a:hover { color: #18ba8d; }
+.footer-contact > div {
+  margin-bottom: 8px;
+  color: #e0eafe;
+  font-size: 1rem;
+}
+.footer-contact i {
+  margin-right: 7px;
+  color: #18ba8d;
+  width:18px; 
+  text-align:center;
+}
+.footer-bottom {
+  background: #111b30;
+  text-align: center;
+  padding: 14px 5px 11px 5px;
+  color: #bbc8e4;
+  font-size: 0.94rem;
+}
+.footer-bottom a {
+  color: #18ba8d;
+  text-decoration: none;
+}
+.footer-bottom a:hover { text-decoration: underline; }
+
+/* --- Floating WhatsApp & Scroll Top Buttons (Perfect Circles) --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  left: 20px;
+  background: #25d366;
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+  border: none;
+}
+.whatsapp-float:hover {
+  background: #1ebc5e;
+}
+.scroll-top {
+  position: fixed;
+  bottom: 22px;
+  right: 20px;
+  background: #18ba8d;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  transition: background 0.2s ease;
+  border: none;
+}
+.scroll-top:hover {
+  background: #128066;
+}
+
+@media (max-width: 900px) {
+  .footer-main {flex-direction: column; gap: 1.7rem;}
+  .footer-block {min-width: 0;}
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Ortho<span style="color:var(--secondary)">Care</span> Hospital</div>
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <!-- ===== DROPDOWN SERVICES START ==== -->
+          <li class="nav-dropdown">
+            <a href="service.html">Services <i class="fas fa-chevron-down" style="font-size:0.8em"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="service.html">All Services</a></li>
+              <li><a href="joint_replacement.html">Joint Replacement</a></li>
+              <li><a href="Sports Injur.html">Sports Injury/Arthroscopy</a></li>
+              <li><a href="Fracture & Trauma.html">Fracture & Trauma</a></li>
+              <li><a href="Physical Therapy & Rehabilitation.html">Rehabilitation</a></li>
+              <li><a href="Minimally Invasive Surgery.html">Minimally Invasive Surgery</a></li>
+            </ul>
+          </li>
+          <!-- ===== DROPDOWN SERVICES END ===== -->
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  </div>
+  <div class="contact-bar">
+    <span><i class="fas fa-phone"></i> +91 99999 99999</span>
+    <span><i class="fas fa-map-marker-alt"></i>Opp High School Bus Stop Bandar Road, Patamata, Vijayawada, Andhra Pradesh</span>
+    <span><i class="fas fa-clock"></i> Mon-Sat: 9:00-5:00 </span>
+  </div>
+</header>
+
+
+  <!-- Hero Section -->
+  <div class="about-header">
+    <h1>About OrthoCare Hospital</h1>
+  </div>
+
+  <!-- Who We Are -->
+  <section class="about-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="/assets/P1.png" alt="Our Team" class="about-image">
+        </div>
+        <div class="col-md-6">
+          <h2 class="about-title">Expert Orthopedic & Joint Replacement Care</h2>
+          <p class="about-text">
+            At OrthoCare Hospital, we are committed to restoring movement and relieving pain.
+            Our team of specialists combines advanced technology with compassionate care to deliver the best outcomes.
+            Whether it’s a sports injury, arthritis, or joint replacement — we’re here for your wellness journey.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Mission & Vision Section -->
+<section class="about-section" style="background-color: #eaf4ff;">
+  <div class="container">
+    <h2 class="about-title text-center text-primary mb-5">Our Mission & Vision</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="p-4 bg-white rounded shadow-sm h-100">
+          <h4><i class="fas fa-bullseye text-primary mr-2"></i>Our Mission</h4>
+          <p class="about-text">
+            To deliver exceptional orthopedic and joint care through compassion, experience, and innovation while improving the quality of life for our patients.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="p-4 bg-white rounded shadow-sm h-100">
+          <h4><i class="fas fa-eye text-primary mr-2"></i>Our Vision</h4>
+          <p class="about-text">
+            To be a nationally recognized orthopedic center that sets the benchmark in clinical excellence, patient safety, and personalized treatments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Meet Our Specialists -->
+<section class="about-section bg-info" style="background-color: #e0f7fa !important;">
+  <div class="container">
+    <h2 class="about-title text-center text-primary mb-5">Meet Our Specialists</h2>
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="bg-white rounded shadow-sm p-4 h-100">
+          <img src="/assets/P1.png" class="rounded-circle mb-3" alt="Doctor 1">
+          <h5>Dr. Arjun Reddy</h5>
+          <p class="text-muted">Senior Orthopedic Surgeon<br>25+ Years Experience</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="bg-white rounded shadow-sm p-4 h-100">
+          <img src="/assets/P1.png" class="rounded-circle mb-3" alt="Doctor 2">
+          <h5>Dr. Sneha Sharma</h5>
+          <p class="text-muted">Joint Replacement Expert<br>15+ Years Experience</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="bg-white rounded shadow-sm p-4 h-100">
+          <img src="/assets/P1.png" class="rounded-circle mb-3" alt="Doctor 3">
+          <h5>Dr. Karthik M</h5>
+          <p class="text-muted">Spinal Disorders Specialist<br>10+ Years Experience</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Stats -->
+  <section class="about-section bg-light">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="stat-box">
+            <i class="fas fa-procedures"></i>
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">Successful Surgeries</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="stat-box">
+            <i class="fas fa-user-md"></i>
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Specialist Doctors</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="stat-box">
+            <i class="fas fa-smile-beam"></i>
+            <div class="stat-number">99%</div>
+            <div class="stat-label">Patient Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- What Our Patients Say Section -->
+<section class="about-section testimonial-section">
+  <div class="container">
+    <h2 class="about-title text-center text-primary mb-5">What Our Patients Say</h2>
+    <div class="row justify-content-center">
+
+      <!-- Testimonial Card 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-avatar">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" alt="Rajesh Kumar">
+          </div>
+          <div class="testimonial-stars mb-2">
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star-half-alt text-warning"></i>
+          </div>
+          <p class="testimonial-quote">
+            <i class="fas fa-quote-left fa-lg text-primary mr-2"></i>
+            Thanks to OrthoCare, I’m walking again without pain! Dr. Reddy and his team are the best.
+          </p>
+          <h5 class="testimonial-name mb-0">Rajesh Kumar</h5>
+          <div class="testimonial-role mb-3">Knee Replacement</div>
+        </div>
+      </div>
+
+      <!-- Testimonial Card 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-avatar">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" alt="Priya Naidu">
+          </div>
+          <div class="testimonial-stars mb-2">
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+          </div>
+          <p class="testimonial-quote">
+            <i class="fas fa-quote-left fa-lg text-primary mr-2"></i>
+            The care and attention I received was truly world-class. Quick recovery and no complications!
+          </p>
+          <h5 class="testimonial-name mb-0">Priya Naidu</h5>
+          <div class="testimonial-role mb-3">Hip Surgery</div>
+        </div>
+      </div>
+
+      <!-- Testimonial Card 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-avatar">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" alt="Mahesh Patil">
+          </div>
+          <div class="testimonial-stars mb-2">
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="far fa-star text-warning"></i>
+          </div>
+          <p class="testimonial-quote">
+            <i class="fas fa-quote-left fa-lg text-primary mr-2"></i>
+            Clean facility, polite staff, and top-notch doctors. What more can you ask for?
+          </p>
+          <h5 class="testimonial-name mb-0">Mahesh Patil</h5>
+          <div class="testimonial-role mb-3">Back Pain Relief</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Regain Your Mobility. Live Pain-Free.</h2>
+      <p>Book your consultation with our orthopedic specialists today.</p>
+      <a href="http://127.0.0.1:5500/index.html#appointment" class="btn btn-light btn-lg font-weight-bold">Book Consultation</a>
+    </div>
+  </section>
+
+  <!-- Google Map -->
+  <section class="about-section">
+    <div class="container">
+      <h2 class="about-title text-center mb-4">Find Us</h2>
+      <div class="embed-responsive embed-responsive-21by9">
+        <iframe class="embed-responsive-item"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63318.673808038975!2d80.58956664349597!3d16.506174291802135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fac3c2d2274b%3A0x466cd15e6e81714a!2sPatamata%2C%20Vijayawada%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1687012294840"
+          allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ✅ REPLACED AND UPGRADED FOOTER SECTION -->
+  <section class="footer-section">
+    <div class="footer-main">
+      <div class="footer-block">
+        <div class="footer-logo">
+          <img src="#" alt="OrthoCare Logo">
+        </div>
+        <p class="footer-desc">
+          Our goal is to deliver quality care in a courteous, respectful, and compassionate manner.<br>
+          We strive to be your family's first and best choice in healthcare.
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-title">Services</div>
+        <div class="footer-links">
+          <a href="#services">Joint Replacement</a>
+          <a href="#services">Sports Injury</a>
+          <a href="#services">Fracture & Trauma</a>
+          <a href="#services">Rehabilitation</a>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#blogs">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-title">Quick Contact</div>
+        <div class="footer-contact">
+          <div><i class="fas fa-phone-alt"></i> +91 99999 99999</div>
+          <div><i class="fas fa-map-marker-alt"></i> Opp High School Bus Stop, Patamata, Vijayawada</div>
+          <div><i class="fas fa-envelope"></i> info@orthocare.com</div>
+          <div style="margin-top:10px;">
+            <a href="#"><i class="fab fa-facebook-f" style="color:#1877f2;"></i></a>
+            <a href="#"><i class="fab fa-instagram" style="color:#e7477c;"></i></a>
+            <a href="#"><i class="fas fa-envelope" style="color:#18ba8d;"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-bottom">
+    © 2025 OrthoCare Hospital | Orthopedic & Joint Replacement Specialists<br>
+    Made with <span style="color: #e25555;">❤</span> by <a href="#">Shashank.K</a>
+  </div>
+
+  <!-- Floating WhatsApp + Scroll Top -->
+  <a href="#" class="whatsapp-float" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" title="Go to top"><i class="fas fa-arrow-up"></i></div>
+
+
+  <script>
+      // Animate progress bars on scroll
+    function animateBars() {
+      const wrappers = document.querySelectorAll('.progress-percent');
+      wrappers.forEach(item => {
+        if (isInViewport(item)) {
+          let percent = item.parentNode.parentNode.querySelector('span').textContent.match(/\d+([.]\d+)?/)[0];
+          item.style.width = percent + '%';
+        }
+      });
+    }
+  </script>
+  
+
+
+</body>
+</html>
+
+
+
+
