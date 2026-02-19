@@ -12,13 +12,13 @@ Add interactive UI elements using JavaScript
 Follow proper folder structure and clean, maintainable code practices
 Focus on accessibility and patient-friendly navigation
 
-**Technologies Used
-HTML5**
+**Technologies Used**
+**HTML5**
 Semantic tags for accessibility and SEO
 Structured multi-page layout (Home, About, Services, Doctors, Appointment, Contact)
 Clean and organized markup
 
-** CSS3**
+**CSS 3**
 Flexbox & Grid for structured layout design
 Custom color variables for consistent medical theme
 Smooth animations and hover effects
